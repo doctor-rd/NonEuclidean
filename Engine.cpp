@@ -6,11 +6,7 @@
 #include "Level4.h"
 #include "Level5.h"
 #include "Level6.h"
-#if defined(_WIN32)
-  #include <GL/wglew.h>
-#else
-  #include <GL/glew.h>
-#endif
+#include <GL/glew.h>
 #include <cmath>
 #include <iostream>
 #include <algorithm>

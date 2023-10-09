@@ -9,11 +9,7 @@
 #include "Scene.h"
 #include "Sky.h"
 #include <GL/glew.h>
-#if defined(_WIN32)
-  #include <windows.h>
-#else
-  #include <SDL2/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 #include <memory>
 #include <vector>
 
@@ -26,10 +22,6 @@ public:
   void Update();
   void Render(const Camera& cam, GLuint curFBO, const Portal* skipPortal);
   void LoadScene(int ix);
-
-#if defined(_WIN32)
-  LRESULT WindowProc(HWND hCurWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
-#endif
 
   const Player& GetPlayer() const { return *player; }
   float NearestPortalDist() const;
@@ -47,20 +39,10 @@ private:
   void PeriodicRender(int64_t &cur_ticks);
   void EnableVSync();
 
-#if defined(_WIN32)
-  HWND  hWnd = nullptr;         // window
-  HDC   hDC = nullptr;          // device context
-  HGLRC hRC = nullptr;          // opengl context
-  HINSTANCE hInstance;          // process id
-
-  LONG iWidth;         // window width
-  LONG iHeight;        // window height
-#else
   SDL_Window* window = nullptr;
   SDL_GLContext glContext = nullptr;
   int iWidth = 0;
   int iHeight = 0;
-#endif
 
   int64_t ticks_per_step = 0;
 

@@ -7,11 +7,7 @@ public:
 
   void EndFrame();
 
-#if defined(_WIN32)
-  void UpdateRaw(const tagRAWINPUT* raw);
-#else
   void UpdateRaw(unsigned state,int mouse_x,int mouse_y);
-#endif
 
   //Keyboard
   bool key[256];
