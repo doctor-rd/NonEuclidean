@@ -5,7 +5,6 @@
 #include "Level3.h"
 #include "Level4.h"
 #include "Level5.h"
-#include "Level6.h"
 #include <GL/glew.h>
 #include <cmath>
 #include <iostream>
@@ -37,7 +36,6 @@ Engine::Engine() {
   vScenes.push_back(std::shared_ptr<Scene>(new Level3));
   vScenes.push_back(std::shared_ptr<Scene>(new Level4));
   vScenes.push_back(std::shared_ptr<Scene>(new Level5));
-  vScenes.push_back(std::shared_ptr<Scene>(new Level6));
 
   LoadScene(0);
 

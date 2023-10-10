@@ -17,6 +17,6 @@ make all
 ## Controls
 * **Mouse** - Look around
 * **AWSD** - Movement
-* **1 - 7** - Switch between different demo rooms
+* **1 - 6** - Switch between different demo rooms
 * **Alt + Enter** - Toggle Fullscreen
 * **Esc** - Exit demo

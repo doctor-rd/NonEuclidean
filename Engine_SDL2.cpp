@@ -5,7 +5,6 @@
 #include "Level3.h"
 #include "Level4.h"
 #include "Level5.h"
-#include "Level6.h"
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 #include <cmath>
@@ -165,8 +164,6 @@ int Engine::EnterMessageLoop() {
       LoadScene(4);
     } else if (input.key_press['6']) {
       LoadScene(5);
-    } else if (input.key_press['7']) {
-      LoadScene(6);
     }
 
     PeriodicRender(cur_ticks);
