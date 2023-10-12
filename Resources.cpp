@@ -25,11 +25,11 @@ std::shared_ptr<Shader> AquireShader(const char* name) {
   }
 }
 
-std::shared_ptr<Texture> AquireTexture(const char* name, int rows, int cols) {
+std::shared_ptr<Texture> AquireTexture(const char* name) {
   static std::unordered_map<std::string, std::weak_ptr<Texture>> map;
   std::weak_ptr<Texture>& tex = map[std::string(name)];
   if (tex.expired()) {
-    std::shared_ptr<Texture> newTex(new Texture(name, rows, cols));
+    std::shared_ptr<Texture> newTex(new Texture(name));
     tex = newTex;
     return newTex;
   } else {
