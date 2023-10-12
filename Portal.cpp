@@ -24,6 +24,7 @@ void Portal::Draw(const Camera& cam, GLuint curFBO) {
   const Vector3 camPos = cam.worldView.Inverse().Translation();
   const bool frontDirection = (camPos - pos).Dot(normal) > 0;
   const Warp* warp = (frontDirection ? &front : &back);
+  if (warp->fromPortal->context != cam.context) return;
   if (frontDirection) {
     normal = -normal;
   }
@@ -37,6 +38,7 @@ void Portal::Draw(const Camera& cam, GLuint curFBO) {
   portalCam.worldView *= warp->delta;
   portalCam.width = GH_FBO_SIZE;
   portalCam.height = GH_FBO_SIZE;
+  portalCam.context = warp->toPortal->context;
 
   //Render portal's view from new camera
   frameBuf[GH_REC_LEVEL - 1].Render(portalCam, curFBO, warp->toPortal);

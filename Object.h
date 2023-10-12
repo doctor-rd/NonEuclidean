@@ -36,6 +36,8 @@ public:
   Vector3 euler;
   Vector3 scale;
 
+  int context;
+
   // Physical scale, only updated by portal scale changes
   float p_scale;
 

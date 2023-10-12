@@ -23,4 +23,6 @@ public:
   int height;
   float near;
   float far;
+
+  int context;
 };

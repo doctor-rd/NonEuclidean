@@ -14,6 +14,7 @@ void Physical::Reset() {
   high_friction = 0.0f;
   drag = 0.0f;
   prev_pos.SetZero();
+  context = 0;
 }
 
 void Physical::Update() {
@@ -24,6 +25,8 @@ void Physical::Update() {
 }
 
 void Physical::OnCollide(Object& other, const Vector3& push) {
+  if (other.context != context) return;
+
   //Update position to avoid collision
   pos += push;
 
@@ -49,9 +52,11 @@ bool Physical::TryPortal(const Portal& portal) {
   const Portal::Warp* warp = portal.Intersects(prev_pos, pos, bump);
   if (warp) {
     //Teleport object
+    if (warp->fromPortal->context != context) return false;
     pos = warp->deltaInv.MulPoint(pos - bump * 2);
     velocity = warp->deltaInv.MulDirection(velocity);
     prev_pos = pos;
+    context = warp->toPortal->context;
 
     //Update camera direction
     const Vector3 forward(-std::sin(euler.y), 0, -std::cos(euler.y));

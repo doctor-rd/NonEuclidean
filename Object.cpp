@@ -6,6 +6,7 @@
 Object::Object() :
   pos(0.0f),
   euler(0.0f),
+  context(0),
   scale(1.0f),
   p_scale(1.0f) {
 }
@@ -18,6 +19,7 @@ void Object::Reset() {
 }
 
 void Object::Draw(const Camera& cam, uint32_t curFBO) {
+  if (cam.context != context) return;
   if (shader && mesh) {
     const Matrix4 mv = WorldToLocal().Transposed();
     const Matrix4 mvp = cam.Matrix() * LocalToWorld();

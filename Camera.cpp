@@ -5,7 +5,8 @@
 
 Camera::Camera() :
   width(256),
-  height(256) {
+  height(256),
+  context(0) {
   worldView.MakeIdentity();
   projection.MakeIdentity();
 }

@@ -67,6 +67,7 @@ void Engine::PeriodicRender(int64_t &cur_ticks) {
   //Setup camera for rendering
   const float n = GH_CLAMP(NearestPortalDist() * 0.5f, GH_NEAR_MIN, GH_NEAR_MAX);
   main_cam.worldView = player->WorldToCam();
+  main_cam.context = player->context;
   main_cam.SetSize(iWidth, iHeight, n, GH_FAR);
   main_cam.UseViewport();
 
