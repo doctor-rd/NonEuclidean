@@ -14,12 +14,12 @@ void Level4::Load(PObjectVec& objs, PPortalVec& portals, Player& player) {
   objs.push_back(ground1);
 
   std::shared_ptr<Tunnel> tunnel2(new Tunnel(Tunnel::SLOPE));
-  tunnel2->pos = Vector3(200, 0, 0);
+  tunnel2->context = 1;
   tunnel2->scale = Vector3(1, 1, 5);
   objs.push_back(tunnel2);
 
   std::shared_ptr<Ground> ground2(new Ground(true));
-  ground2->pos = Vector3(200, 0, 0);
+  ground2->context = 1;
   ground2->scale *= Vector3(1, 2, 1);
   ground2->euler.y = GH_PI;
   objs.push_back(ground2);
