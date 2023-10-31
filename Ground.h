@@ -10,8 +10,7 @@ public:
     } else {
       mesh = AquireMesh("ground.obj");
     }
-    shader = AquireShader("texture");
-    texture = AquireTexture("checker_green.bmp");
+    shader = AquireShader("checker");
     scale = Vector3(10, 1, 10);
   }
   virtual ~Ground() {}
