@@ -22,4 +22,5 @@ private:
   GLuint progId;
   GLuint mvpId;
   GLuint mvId;
+  GLuint timeId;
 };

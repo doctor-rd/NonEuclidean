@@ -6,8 +6,7 @@ class House : public Object {
 public:
   House(const char* tex) {
     mesh = AquireMesh("square_rooms.obj");
-    shader = AquireShader("texture");
-    texture = AquireTexture(tex);
+    shader = AquireShader("kishimisu");
     scale = Vector3(1.0f, 3.0f, 1.0f);
   }
   virtual ~House() {}

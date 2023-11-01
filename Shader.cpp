@@ -1,4 +1,5 @@
 #include "Shader.h"
+#include <SDL2/SDL.h>
 #include <fstream>
 #include <sstream>
 
@@ -45,6 +46,7 @@ Shader::Shader(const char* name) {
   //Get global variable locations
   mvpId = glGetUniformLocation(progId, "mvp");
   mvId = glGetUniformLocation(progId, "mv");
+  timeId = glGetUniformLocation(progId, "time");
 }
 
 Shader::~Shader() {
@@ -110,4 +112,5 @@ GLuint Shader::LoadShader(const char* fname, GLenum type) {
 void Shader::SetMVP(const float* mvp, const float* mv) {
   if (mvp) glUniformMatrix4fv(mvpId, 1, GL_TRUE, mvp);
   if (mv) glUniformMatrix4fv(mvId, 1, GL_TRUE, mv);
+  glUniform1f(timeId, SDL_GetTicks()/1000.0f);
 }
