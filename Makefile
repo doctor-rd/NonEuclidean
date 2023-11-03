@@ -19,11 +19,11 @@ HEADERS=Camera.h Collider.h Engine.h Floorplan.h FrameBuffer.h GameHeader.h \
 	Ground.h House.h Input.h Mesh.h Object.h Physical.h Pillar.h PillarRoom.h \
 	Player.h Portal.h Resources.h Scene.h Shader.h Sky.h Sphere.h Statue.h \
 	Texture.h Timer.h Tunnel.h Vector.h \
-	Level1.h Level2.h Level3.h Level4.h Level5.h
+	Level1.h Level2.h Level3.h Level4.h
 
 OBJS=Camera.o Collider.o Engine.o Engine_SDL2.o \
 	FrameBuffer.o Input.o \
-	Level1.o Level2.o Level3.o Level4.o Level5.o \
+	Level1.o Level2.o Level3.o Level4.o \
 	Main.o Mesh.o Object.o Physical.o Player.o Portal.o \
 	Resources.o Shader.o Texture.o
 
