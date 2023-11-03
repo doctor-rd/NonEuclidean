@@ -2,13 +2,13 @@
 #include "House.h"
 
 void Level2::Load(PObjectVec& objs, PPortalVec& portals, Player& player) {
-  std::shared_ptr<House> house1(new House("three_room.bmp"));
+  std::shared_ptr<House> house1(new House());
   house1->pos = Vector3(0, 0, -20);
   objs.push_back(house1);
 
   std::shared_ptr<House> house2;
   if (num_rooms > 4) {
-    house2.reset(new House("three_room2.bmp"));
+    house2.reset(new House());
     house2->pos = Vector3(0, 0, -20);
     house2->context = 1;
     objs.push_back(house2);
